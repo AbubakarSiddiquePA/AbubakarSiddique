@@ -32,7 +32,7 @@ body {
 }
 
 body {
-    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     background: var(--bg);
     color: var(--text);
     line-height: 1.7;
@@ -62,9 +62,23 @@ body {
     gap: 20px;
 }
 
+h1,
+h2,
+h3,
+h4 {
+    font-weight: 600;
+    /* strong but not too heavy */
+}
+
 .site-title {
-    font-size: 22px;
     font-weight: 700;
+    /* your name at top stands out */
+}
+
+p,
+li {
+    font-weight: 400;
+    /* normal readable body text */
 }
 
 .site-role {
@@ -97,6 +111,7 @@ body {
 /* Section spacing */
 section {
     margin-bottom: 60px;
+    scroll-margin-top: 120px;
 }
 
 /* Card */
@@ -264,6 +279,22 @@ section {
     margin-top: 40px;
 }
 
+/* Hide hamburger button on desktop */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: white;
+}
+
+.site-nav {
+    display: flex;
+    /* visible as row on desktop */
+    align-items: center;
+}
+
 /* Responsive */
 @media (max-width:800px) {
     .header-inner {
@@ -273,7 +304,16 @@ section {
     }
 
     .nav-list {
-        flex-wrap: wrap;
+        flex-direction: column;
+        gap: 12px;
+        padding: 10px;
+    }
+
+    .nav-list a {
+        color: white;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: 600;
     }
 
     .hero-content {
@@ -283,6 +323,30 @@ section {
 
     .hero-photo img {
         margin-top: 20px;
+    }
+
+    .menu-toggle {
+        display: block;
+        /* show hamburger only on mobile */
+    }
+
+    .site-nav {
+        display: none;
+        /* hide menu by default */
+        position: absolute;
+        top: 60px;
+        /* just below header */
+        right: 20px;
+        background: var(--primary);
+        padding: 16px;
+        border-radius: 8px;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        z-index: 1000;
+    }
+
+    .site-nav.open {
+        display: block;
+        /* show when menuOpen=true */
     }
 }
 

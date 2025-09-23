@@ -9,7 +9,7 @@ export default function Skills() {
         <li>Firebase & REST APIs</li>
         <li>Provider (State Management)</li>
         <li>React (Beginner)</li>
-        <li>Git & CI/CD</li>
+        <li>Git & Svn</li>
       </ul>
     </section>
   );

@@ -19,7 +19,7 @@ export default function Hero() {
                 </div>
                 <div className="hero-photo">
                     <img
-                        src="https://media.licdn.com/dms/image/v2/D5603AQGtttZtd75MSA/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1698232676875?e=2147483647&v=beta&t=6YTSSVnN3g7qiTDK_o0CRC2PXab1YoZtTGdBS0hZrUQ"
+                        // src="https://media.licdn.com/dms/image/v2/D5603AQGtttZtd75MSA/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1698232676875?e=2147483647&v=beta&t=6YTSSVnN3g7qiTDK_o0CRC2PXab1YoZtTGdBS0hZrUQ"
                         alt="Abubakar Siddique"
                     />
                 </div>
