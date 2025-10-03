@@ -1,6 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 
 export default function Contact() {
+    const [status, setStatus] = useState(""); // success or error
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const form = e.target;
+
+        try {
+            const response = await fetch("https://formspree.io/f/xjkarlww", {
+                method: "POST",
+                body: new FormData(form),
+                headers: { Accept: "application/json" },
+            });
+
+            if (response.ok) {
+                setStatus("SUCCESS");
+                form.reset(); // clear form
+            } else {
+                setStatus("ERROR");
+            }
+        } catch (error) {
+            console.error("Form submission failed:", error);
+            setStatus("ERROR");
+        }
+
+
+    };
+
     return (
         <section id="contact" className="contact card">
             <h3>Contact</h3>
@@ -20,16 +47,32 @@ export default function Contact() {
                     <i className="fa-brands fa-linkedin"></i> LinkedIn
                 </a>
             </p>
-
             <p>
-                <a
-                    href="https://github.com/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
+                <a href="https://github.com/" target="_blank" rel="noopener noreferrer">
                     <i className="fa-brands fa-github"></i> GitHub
                 </a>
             </p>
+
+            {/* --- Contact Form --- */}
+            <form className="contact-form" onSubmit={handleSubmit}>
+                <h3>Drop me a message</h3>
+                <input type="text" name="name" placeholder="Your Name" required />
+                <input type="email" name="email" placeholder="Your Email" required />
+                <textarea name="message" placeholder="Your Message" rows="4" required />
+                <button type="submit" className="btn">Send Message</button>
+            </form>
+
+            {/* --- Feedback Message --- */}
+            {status === "SUCCESS" && (
+                <p style={{ color: "green", marginTop: "10px" }}>
+                    ✅ Thanks! Your message has been sent.
+                </p>
+            )}
+            {status === "ERROR" && (
+                <p style={{ color: "red", marginTop: "10px" }}>
+                    ❌ Oops! Something went wrong. Please try again.
+                </p>
+            )}
         </section>
     );
 }

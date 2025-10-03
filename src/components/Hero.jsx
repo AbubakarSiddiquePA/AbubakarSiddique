@@ -5,7 +5,7 @@ export default function Hero() {
         <section id="hero" className="hero">
             <div className="hero-content">
                 <div className="hero-text">
-                    <h2 className="hero-title">Hi — I’m Abubakar Siddique</h2>
+                    <h2 className="hero-title">Crafting Apps with Purpose ✨ </h2>
                     <p className="hero-sub">
                         I build thoughtful mobile apps with Flutter and craft clean web UIs.
                     </p>
@@ -17,6 +17,8 @@ export default function Hero() {
                 <div className="hero-photo">
                     {/*  load from public/ */}
                     <img src="/images/profile.png" alt="Abubakar Siddique" />
+                    {/* <img src="" alt="AS" /> */}
+
                 </div>
             </div>
         </section>
