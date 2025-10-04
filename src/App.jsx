@@ -1,13 +1,12 @@
-import Header from "./components/header";
-import Hero from "./components/hero";
-import About from "./components/about";
+import Header from "./components/Header";
+import Hero from "./components/Hero";
+import About from "./components/About";
 import Experience from "./components/Experience";
 import Education from "./components/Education";
 import Skills from "./components/Skills";
-import Contact from "./components/contact";
-import Footer from "./components/footer";
+import Contact from "./components/Contact";
+import Footer from "./components/Footer";
 import BackToTop from "./components/BackToTop";
-
 
 function App() {
   return (
