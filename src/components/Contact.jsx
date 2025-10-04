@@ -24,8 +24,6 @@ export default function Contact() {
             console.error("Form submission failed:", error);
             setStatus("ERROR");
         }
-
-
     };
 
     return (
@@ -34,7 +32,12 @@ export default function Contact() {
 
             <p>
                 <a href="mailto:siddiquepanathur@gmail.com">
-                    <i className="fa-solid fa-envelope"></i> siddiquepanathur@gmail.com
+                    <img
+                        src="https://cdn-icons-png.flaticon.com/512/732/732200.png"
+                        alt="Email"
+                        style={{ width: "20px", marginRight: "8px", verticalAlign: "middle" }}
+                    />
+                    siddiquepanathur@gmail.com
                 </a>
             </p>
 
@@ -44,12 +47,27 @@ export default function Contact() {
                     target="_blank"
                     rel="noopener noreferrer"
                 >
-                    <i className="fa-brands fa-linkedin"></i> LinkedIn
+                    <img
+                        src="https://cdn-icons-png.flaticon.com/512/174/174857.png"
+                        alt="LinkedIn"
+                        style={{ width: "20px", marginRight: "8px", verticalAlign: "middle" }}
+                    />
+                    LinkedIn
                 </a>
             </p>
+
             <p>
-                <a href="https://github.com/" target="_blank" rel="noopener noreferrer">
-                    <i className="fa-brands fa-github"></i> GitHub
+                <a
+                    href="https://github.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <img
+                        src="https://cdn-icons-png.flaticon.com/512/25/25231.png"
+                        alt="GitHub"
+                        style={{ width: "20px", marginRight: "8px", verticalAlign: "middle" }}
+                    />
+                    GitHub
                 </a>
             </p>
 

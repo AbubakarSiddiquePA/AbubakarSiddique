@@ -36,7 +36,9 @@ function Header() {
     <header className="site-header">
       <div className="container header-inner">
         <div className="brand">
+          {/* <h1 className="site-title">Abubakar Siddique</h1> */}
           <h1 className="site-title">Abubakar Siddique</h1>
+
           <p className="site-role">
             Flutter Developer • Web Learner • Aspiring Software Engineer
           </p>

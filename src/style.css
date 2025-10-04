@@ -171,61 +171,162 @@ section {
 }
 
 /* Buttons */
+/* =============================
+   Modern Glassy Primary Button
+   ============================= */
 .btn {
     display: inline-block;
-    padding: 12px 20px;
-    border-radius: 8px;
-    background: var(--accent);
-    color: #fff;
+    padding: 12px 22px;
+    border-radius: 12px;
     font-weight: 600;
     text-decoration: none;
-    box-shadow: 0 6px 18px rgba(249, 115, 22, 0.25);
-    transition: background 0.2s ease, transform 0.15s ease;
-    margin-right: 12px;
+    color: var(--primary);
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    margin-right: 20px;
+    /* wider gap between buttons */
+    margin-bottom: 12px;
+    /* spacing when stacked on smaller screens */
 }
 
+.btn:last-child {
+    margin-right: 0;
+}
+
+/* Hover: light mode */
 .btn:hover {
-    background: #ea580c;
-    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.4);
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
 }
 
+/* Accent pulse animation (subtle ring effect) */
+.btn:hover::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    border: 2px solid var(--accent);
+    opacity: 0.3;
+    animation: pulseGlow 1s ease-out;
+}
+
+@keyframes pulseGlow {
+    0% {
+        transform: scale(0.9);
+        opacity: 0.4;
+    }
+
+    100% {
+        transform: scale(1.4);
+        opacity: 0;
+    }
+}
+
+/* Dark mode version */
+:root.dark .btn {
+    background: rgba(17, 24, 39, 0.5);
+    color: var(--primary-contrast);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.08);
+}
+
+:root.dark .btn:hover {
+    background: rgba(30, 41, 59, 0.6);
+    box-shadow: 0 6px 18px rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px) scale(1.03);
+}
+
+/* Accent glow for dark mode hover */
+:root.dark .btn:hover::after {
+    border-color: var(--accent);
+    opacity: 0.2;
+}
+
+/* =============================
+   Ghost variant (outlined)
+   ============================= */
 .btn.ghost {
     background: transparent;
-    color: var(--accent);
     border: 1px solid var(--accent);
+    color: var(--accent);
+    box-shadow: none;
 }
 
 .btn.ghost:hover {
     background: var(--accent);
-    color: #fff;
+    color: var(--primary-contrast);
+    transform: translateY(-2px);
 }
 
-/* Skills */
 .skills-list {
     display: flex;
     flex-wrap: wrap;
-    gap: 12px;
-    margin-top: 16px;
+    justify-content: center;
+    /* centers all chips */
+    gap: 16px 20px;
+    /* row-gap and column-gap */
+    margin-top: 24px;
     padding-left: 0;
     list-style: none;
 }
 
 .skills-list li {
-    background: var(--card);
+    background: rgba(255, 255, 255, 0.25);
     color: var(--text);
-    padding: 6px;
+    padding: 10px 18px;
+    /* slightly larger for better tap area */
     border-radius: var(--radius);
     font-weight: 600;
-    font-size: 0.9rem;
-    border: 1px solid var(--accent);
-    transition: all 0.25s ease;
+    font-size: 0.95rem;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* Hover (light mode) */
 .skills-list li:hover {
-    background: var(--accent);
+    background: rgba(255, 255, 255, 0.4);
+    color: var(--primary);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+}
+
+/* Dark mode version */
+:root.dark .skills-list li {
+    background: rgba(17, 24, 39, 0.5);
     color: var(--primary-contrast);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.05);
+}
+
+:root.dark .skills-list li:hover {
+    background: rgba(30, 41, 59, 0.6);
+    box-shadow: 0 6px 14px rgba(255, 255, 255, 0.12);
     transform: translateY(-2px);
 }
+
+/* Responsive tweak: larger padding and gap for mobile screens */
+@media (max-width: 600px) {
+    .skills-list {
+        gap: 14px;
+        margin-top: 20px;
+    }
+
+    .skills-list li {
+        padding: 10px 16px;
+        font-size: 0.9rem;
+    }
+}
+
 
 /* Timeline */
 .timeline {
@@ -292,22 +393,91 @@ section {
     margin-top: 40px;
 }
 
-/* Theme toggle button */
+.footer-socials {
+    margin-top: 12px;
+    display: flex;
+    justify-content: center;
+}
+
+.footer-socials a img {
+    transition: transform 0.2s ease;
+}
+
+.footer-socials a img:hover {
+    transform: scale(1.2);
+}
+
+/* =============================
+   Modern Glassy Theme Toggle
+   ============================= */
 .theme-toggle {
-    background: none;
-    border: 1px solid var(--accent);
-    color: var(--accent);
+    background: rgba(255, 255, 255, 0.25);
+    /* glass effect (light mode) */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: var(--primary);
+    /* dark icon on light bg */
     font-size: 18px;
-    padding: 6px 10px;
+    padding: 8px;
     border-radius: 50%;
     cursor: pointer;
     margin-right: 12px;
-    transition: background 0.2s ease, color 0.2s ease;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
+/* Hover (light mode) */
 .theme-toggle:hover {
+    transform: scale(1.08);
+    background: rgba(255, 255, 255, 0.35);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+}
+
+/* Dark mode version */
+:root.dark .theme-toggle {
+    background: rgba(17, 24, 39, 0.5);
+    /* dark frosted glass */
+    color: var(--primary-contrast);
+    /* white icon */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.08);
+}
+
+/* Hover (dark mode) */
+:root.dark .theme-toggle:hover {
+    background: rgba(30, 41, 59, 0.6);
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.12);
+    transform: scale(1.08);
+}
+
+/* Add subtle pulse on hover for modern feel */
+.theme-toggle:hover::after {
+    content: "";
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
     background: var(--accent);
-    color: #fff;
+    opacity: 0.15;
+    z-index: -1;
+    transform: scale(1);
+    animation: pulse 1s ease-out;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(0.9);
+        opacity: 0.3;
+    }
+
+    100% {
+        transform: scale(1.5);
+        opacity: 0;
+    }
 }
 
 /* Hamburger */
@@ -351,6 +521,91 @@ section {
 
 .contact-form button {
     align-self: flex-start;
+}
+
+/* Back to Top – Glassy Theme-Aware Button */
+.back-to-top {
+    position: fixed;
+    bottom: 40px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.25);
+    /* default for light */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    color: var(--primary);
+    /* dark text on light mode */
+    font-size: 22px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+    transition: all 0.3s ease;
+    z-index: 1000;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    animation: fadeIn 0.5s ease;
+}
+
+/* Hover */
+.back-to-top:hover {
+    transform: scale(1.1);
+    background: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 6px 22px rgba(0, 0, 0, 0.35);
+}
+
+/* Dark mode override */
+:root.dark .back-to-top {
+    background: rgba(17, 24, 39, 0.4);
+    /* glassy dark */
+    color: var(--primary-contrast);
+    /* white icon/text */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 16px rgba(255, 255, 255, 0.08);
+}
+
+:root.dark .back-to-top:hover {
+    background: rgba(30, 41, 59, 0.6);
+    box-shadow: 0 6px 24px rgba(255, 255, 255, 0.15);
+    transform: scale(1.1);
+}
+
+/* Fade animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive: when buttons wrap on mobile */
+@media (max-width: 600px) {
+    .btn {
+        display: block;
+        width: 100%;
+        text-align: center;
+        margin: 10px 0;
+    }
 }
 
 /* Responsive */
