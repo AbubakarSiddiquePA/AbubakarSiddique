@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import About from "./components/About";
@@ -15,7 +15,7 @@ import ScrollToTop from "./components/ScrollToTop";
 function App() {
   return (
     <>
-      {/* Ensure scroll resets on route change */}
+      {/* Scroll to top on route change */}
       <ScrollToTop />
 
       <Header />
@@ -44,7 +44,6 @@ function App() {
       <StoriesButton />
       <BackToTop />
     </>
-
   );
 }
 

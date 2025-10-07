@@ -15,7 +15,7 @@ export default function Hero() {
                     </p>
                 </div>
                 <div className="hero-photo">
-                    {/*  load from public/ */}
+                    {/* load from public/ */}
                     <img src="/images/profile.png" alt="Abubakar Siddique" />
                     {/* <img src="" alt="AS" /> */}
 

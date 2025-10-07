@@ -221,7 +221,7 @@ section {
     0% {
         transform: scale(0.9);
         opacity: 0.4;
-    }
+    }svn
 
     100% {
         transform: scale(1.4);
@@ -268,13 +268,37 @@ section {
 .skills-list {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    /* centers all chips */
-    gap: 16px 20px;
-    /* row-gap and column-gap */
-    margin-top: 24px;
+    gap: 16px;
+    margin-top: 16px;
     padding-left: 0;
     list-style: none;
+    justify-content: center;
+}
+
+.skill-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--card);
+    color: var(--text);
+    padding: 10px 16px;
+    border-radius: var(--radius);
+    font-weight: 600;
+    font-size: 0.95rem;
+    border: 1px solid var(--accent);
+    transition: all 0.25s ease;
+}
+
+.skill-item:hover {
+    background: var(--accent);
+    color: var(--primary-contrast);
+    transform: translateY(-3px);
+}
+
+.skill-icon {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
 }
 
 .skills-list li {
@@ -571,6 +595,236 @@ section {
     background: rgba(30, 41, 59, 0.6);
     box-shadow: 0 6px 24px rgba(255, 255, 255, 0.15);
     transform: scale(1.1);
+}
+
+.floating-stories-btn {
+    position: fixed;
+    bottom: 100px;
+    /* slightly above BackToTop */
+    right: 30px;
+    /* or left: 30px; if you want left side */
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50px;
+    padding: 10px 18px;
+    color: var(--text);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.floating-stories-btn:hover {
+    transform: scale(1.05);
+    background: rgba(255, 255, 255, 0.35);
+}
+
+/* ===== Stories Page ===== */
+
+.section-title {
+    font-size: 1.8rem;
+    margin-bottom: 8px;
+    color: var(--accent);
+}
+
+.section-subtitle {
+    color: var(--muted);
+    margin-bottom: 24px;
+}
+
+/* Keep all story cards consistent height when collapsed */
+.stories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+}
+
+.story-card {
+    transition: all 0.3s ease;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 320px;
+    /* fixed default height */
+}
+
+.story-card.expanded {
+    height: auto;
+    /* expands smoothly for the selected story */
+    transition: all 0.3s ease;
+}
+
+.story-text {
+    flex-grow: 1;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+}
+
+/* Optional — make the expand smoother */
+.story-card.expanded .story-text {
+    max-height: 2000px;
+    /* enough to show full text */
+}
+
+.read-btn {
+    background: none;
+    border: none;
+    color: var(--accent);
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 6px;
+    transition: color 0.2s ease;
+}
+
+.read-btn:hover {
+    color: var(--text);
+    text-decoration: underline;
+}
+
+.books-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+}
+
+.book-card {
+    text-align: center;
+    padding: 24px;
+    border-radius: var(--radius);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.book-card:hover {
+    transform: translateY(-6px);
+}
+
+.book-cover {
+    width: 120px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    margin-bottom: 12px;
+}
+
+.authors {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.author-photo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease;
+}
+
+.author-photo:hover {
+    transform: scale(1.05);
+}
+
+.book-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 4px;
+}
+
+.book-card .author {
+    font-size: 0.95rem;
+    color: var(--muted);
+}
+
+.glassy-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--radius);
+    padding: 20px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.glassy-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+}
+
+.book-card .author {
+    font-weight: 600;
+    color: var(--accent);
+    margin-bottom: 6px;
+}
+
+.center-btn {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.glassy {
+    background: rgba(249, 115, 22, 0.1);
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 8px;
+    padding: 10px 16px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.glassy:hover {
+    background: var(--accent);
+    color: var(--primary-contrast);
+    transform: translateY(-2px);
+}
+
+.like-btn {
+    border: 1px solid var(--accent);
+    border-radius: 20px;
+    padding: 6px 12px;
+    margin-top: 10px;
+    background: transparent;
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 15px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    backdrop-filter: blur(8px);
+}
+
+.like-btn:hover {
+    background: var(--accent);
+    color: var(--primary-contrast);
+    transform: scale(1.05);
+}
+
+.like-btn.liked {
+    background: var(--accent);
+    color: var(--primary-contrast);
+    pointer-events: none;
+}
+
+.read-btn {
+    background: none;
+    border: none;
+    color: var(--accent);
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 6px;
+    transition: color 0.2s ease;
+}
+
+.read-btn:hover {
+    color: var(--text);
+    text-decoration: underline;
 }
 
 /* Fade animation */
