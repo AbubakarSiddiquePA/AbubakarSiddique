@@ -221,7 +221,7 @@ section {
     0% {
         transform: scale(0.9);
         opacity: 0.4;
-    }svn
+    }
 
     100% {
         transform: scale(1.4);
@@ -631,6 +631,10 @@ section {
 .section-subtitle {
     color: var(--muted);
     margin-bottom: 24px;
+}
+
+.site-main {
+    padding-top: 40px;
 }
 
 /* Keep all story cards consistent height when collapsed */
