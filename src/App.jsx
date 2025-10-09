@@ -43,6 +43,7 @@ function App() {
       <Footer />
       <StoriesButton />
       <BackToTop />
+      <ChatbaseWidget />
     </>
 
   );
