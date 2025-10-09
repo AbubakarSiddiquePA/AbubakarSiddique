@@ -11,7 +11,7 @@ import BackToTop from "./components/BackToTop";
 import Stories from "./components/Stories";
 import StoriesButton from "./components/StoriesButton";
 import ScrollToTop from "./components/ScrollToTop";
-
+import ChatbaseWidget from "./components/ChatbaseWidget";
 function App() {
   return (
     <>
